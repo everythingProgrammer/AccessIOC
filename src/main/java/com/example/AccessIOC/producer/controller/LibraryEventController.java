@@ -15,7 +15,7 @@ public class LibraryEventController {
     public ResponseEntity<LibraryEvent> postLibraryEvent(@RequestBody LibraryEvent libevent){
 
         // invoke kafka producer
-
+        System.out.println("Recieved");
         return   ResponseEntity.status(HttpStatus.CREATED).body(libevent);
     }
 }
