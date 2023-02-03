@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: local
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  kafka:
+    security:
+      protocol: SASL_SSL
+    bootstrap-servers: cluster.playground.cdkt.io:9092
+    properties:
+      sasl:
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="202MPZsJlCVsWX5XqoAs3V" password="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2F1dGguY29uZHVrdG9yLmlvIiwic291cmNlQXBwbGljYXRpb24iOiJhZG1pbiIsInVzZXJNYWlsIjpudWxsLCJwYXlsb2FkIjp7InZhbGlkRm9yVXNlcm5hbWUiOiIyMDJNUFpzSmxDVnNXWDVYcW9BczNWIiwib3JnYW5pemF0aW9uSWQiOjY5MTYyLCJ1c2VySWQiOjc5ODY3LCJmb3JFeHBpcmF0aW9uQ2hlY2siOiIwZDgzZjI3MC1lMDI4LTQyMTctYjIyYi01ZWIyMWNkYmI2NzQifX0.h-4S4LoiNFsqUrBhh6ubAxtD5zeezhKqATHvllKjfZU";
+        mechanism: PLAIN
+
+    consumer:
+      group-id: demoCg-4443
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      enable-auto-commit: false
+    listener:
+      ack-mode: manual
